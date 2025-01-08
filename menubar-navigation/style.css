@@ -1,0 +1,271 @@
+.button {
+  --border: rgb(0 0 0/13%);
+  --highlight: rgb(255 255 255/20%);
+  --shadow: rgb(0 0 0/10%);
+  display: flex;
+  height: 2.5rem;
+  user-select: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  border-style: none;
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: black;
+  text-decoration-line: none;
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-color: hsl(204 100% 40%);
+  box-shadow:
+    inset 0 0 0 1px var(--border),
+    inset 0 2px 0 var(--highlight),
+    inset 0 -1px 0 var(--shadow),
+    0 1px 1px var(--shadow);
+}
+
+.button:where(.dark, .dark *) {
+  --border: rgb(255 255 255/10%);
+  --highlight: rgb(255 255 255/5%);
+  --shadow: rgb(0 0 0/25%);
+  background-color: rgb(255 255 255 / 0.05);
+  color: white;
+  box-shadow:
+    inset 0 0 0 1px var(--border),
+    inset 0 -1px 0 1px var(--shadow),
+    inset 0 1px 0 var(--highlight);
+}
+
+.button:not(:active):hover {
+  --border: rgb(0 0 0/33%);
+}
+
+.button:where(.dark, .dark *):not(:active):hover {
+  --border: rgb(255 255 255/25%);
+}
+
+.button[aria-disabled="true"] {
+  opacity: 0.5;
+}
+
+.button[data-focus-visible] {
+  outline-style: solid;
+}
+
+.button:active,
+.button[data-active] {
+  padding-top: 0.125rem;
+  box-shadow:
+    inset 0 0 0 1px var(--border),
+    inset 0 2px 0 var(--border);
+}
+
+@media (min-width: 640px) {
+  .button {
+    gap: 0.5rem;
+  }
+}
+
+.button:active:where(.dark, .dark *),
+.button[data-active]:where(.dark, .dark *) {
+  box-shadow:
+    inset 0 0 0 1px var(--border),
+    inset 0 1px 1px 1px var(--shadow);
+}
+
+.nav {
+  height: 100%;
+}
+
+.menubar {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.menubar-item {
+  display: flex;
+  height: 2.5rem;
+  cursor: default;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border-radius: 9999px;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  text-underline-offset: 4px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.menubar-item:hover {
+  background-color: rgb(0 0 0 / 0.05);
+}
+
+.menubar-item[aria-expanded="true"] {
+  background-color: rgb(0 0 0 / 7.5%);
+}
+
+.menubar-item[aria-haspopup] {
+  padding-right: 0.875rem;
+}
+
+.menubar-item[data-focus-visible] {
+  background-color: hsl(204 100% 80% / 0.4);
+}
+
+.menubar-item:hover:where(.dark, .dark *) {
+  background-color: rgb(255 255 255 / 0.05);
+}
+
+.menubar-item[aria-expanded="true"]:where(.dark, .dark *) {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.menubar-item[data-focus-visible]:where(.dark, .dark *) {
+  background-color: hsl(204 100% 40% / 0.25);
+}
+
+a.menubar-item {
+  cursor: pointer;
+}
+
+a.menubar-item:hover {
+  text-decoration-line: underline;
+}
+
+a.menubar-item[data-focus-visible] {
+  text-decoration-line: underline;
+}
+
+.menubar-arrow {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.menubar-arrow svg {
+  stroke-width: 1;
+}
+
+[aria-expanded="true"] .menubar-arrow {
+  transform: rotate(180deg);
+}
+
+.menu-wrapper:has([data-enter]) {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.menu-arrow {
+  transition-property: left;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.menu {
+  position: relative;
+  z-index: 50;
+  max-height: max(max-content, var(--popover-available-height));
+  max-width: var(--popover-available-width);
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-style: solid;
+  border-color: hsl(204 20% 88%);
+  background-color: white;
+  padding: 1rem;
+  color: black;
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.menu[data-enter] {
+  opacity: 1;
+}
+
+.menu:where(.dark, .dark *) {
+  border-color: hsl(204 4% 24%);
+  background-color: hsl(204 4% 16%);
+  color: white;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.25),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.menu-contents {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-contents:has([role="group"]) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: flex-start;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.group-label {
+  cursor: default;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  border-radius: 0.375rem;
+  padding: 1rem;
+}
+
+.menu-item:hover {
+  background-color: hsl(204 100% 80% / 0.4);
+  color: black;
+}
+
+.menu-item[data-focus-visible] {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: -1px;
+  outline-color: hsl(204 100% 40%);
+}
+
+.menu-item:hover:where(.dark, .dark *) {
+  background-color: hsl(204 100% 40% / 0.25);
+  color: white;
+}
+
+a.menu-item {
+  cursor: pointer;
+}
+
+.menu-item-label {
+  font-weight: 500;
+}
+
+.menu-item-description {
+  font-weight: 300;
+  opacity: 0.7;
+}
