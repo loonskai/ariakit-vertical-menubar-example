@@ -7,5 +7,9 @@ import Example from "./menubar-navigation/index.tsx";
 const root = document.getElementById("root");
 
 if (root) {
-  createRoot(root).render(<StrictMode><Example /></StrictMode>);
+  createRoot(root).render(
+    <StrictMode>
+      <Example />
+    </StrictMode>
+  );
 }

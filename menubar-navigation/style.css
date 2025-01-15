@@ -198,20 +198,6 @@ a.menubar-item[data-focus-visible] {
   align-items: flex-start;
 }
 
-.group {
-  display: flex;
-  flex-direction: column;
-}
-
-.group-label {
-  cursor: default;
-  padding: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-weight: 500;
-  opacity: 0.6;
-}
-
 .menu-item {
   display: flex;
   flex-direction: column;

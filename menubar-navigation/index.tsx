@@ -1,4 +1,6 @@
-import { Menu, MenuGroup, MenuItem, Menubar } from "./menubar.tsx";
+import { MenuItem } from "./menu-item.tsx";
+import { Menu } from "./menu.tsx";
+import { Menubar } from "./menubar.tsx";
 import "./style.css";
 
 export default function Example() {
@@ -23,18 +25,16 @@ export default function Example() {
           />
         </Menu>
         <Menu label="Blog" placement="bottom-start" shift={-192}>
-          <MenuGroup label="Categories">
-            <MenuItem
-              href="#/blog/tech"
-              label="Tech"
-              description="Latest technology news and insights"
-            />
-            <MenuItem
-              href="#/business"
-              label="Business"
-              description="Business trends and market analysis"
-            />
-          </MenuGroup>
+          <MenuItem
+            href="#/blog/tech"
+            label="Tech"
+            description="Latest technology news and insights"
+          />
+          <MenuItem
+            href="#/business"
+            label="Business"
+            description="Business trends and market analysis"
+          />
           <MenuItem
             href="#/blog/archives"
             label="Archives"
@@ -42,25 +42,21 @@ export default function Example() {
           />
         </Menu>
         <Menu label="Company">
-          <MenuGroup label="Info">
-            <MenuItem
-              href="#/aboutus"
-              label="About Us"
-              description="Learn more about our company"
-            />
-          </MenuGroup>
-          <MenuGroup label="Departments">
-            <MenuItem
-              href="#/hr"
-              label="HR"
-              description="Jobs and career at our company"
-            />
-            <MenuItem
-              href="#/finance"
-              label="Finance"
-              description="Financial and investor information"
-            />
-          </MenuGroup>
+          <MenuItem
+            href="#/aboutus"
+            label="About Us"
+            description="Learn more about our company"
+          />
+          <MenuItem
+            href="#/hr"
+            label="HR"
+            description="Jobs and career at our company"
+          />
+          <MenuItem
+            href="#/finance"
+            label="Finance"
+            description="Financial and investor information"
+          />
         </Menu>
         <Menu href="#/contact" label="Contact" />
       </Menubar>
