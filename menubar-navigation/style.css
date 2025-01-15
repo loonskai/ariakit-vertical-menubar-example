@@ -83,6 +83,7 @@
 
 .menubar {
   display: flex;
+  flex-direction: column;
   width: max-content;
   align-items: center;
   gap: 0.25rem;
@@ -146,28 +147,8 @@ a.menubar-item[data-focus-visible] {
   text-decoration-line: underline;
 }
 
-.menubar-arrow {
-  transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.menubar-arrow svg {
-  stroke-width: 1;
-}
-
-[aria-expanded="true"] .menubar-arrow {
-  transform: rotate(180deg);
-}
-
 .menu-wrapper:has([data-enter]) {
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.menu-arrow {
-  transition-property: left;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
